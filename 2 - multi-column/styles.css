@@ -15,3 +15,60 @@ h1,h2,h3 {
 p {
   color: #828b8a;
 }
+
+header {
+  max-width: 1200px;
+  margin: 40px auto;
+  border-bottom: 1px solid #bbc7c7;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+article.featured {
+  grid-column: span 3; /* take up 3 columns */
+  display: grid; /* grid inside grid, nested grid */
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  border-bottom: 1px solid #bbc7c7;
+  padding-bottom: 40px;
+}
+
+/* create border for images, and make image take 100% width*/
+article img, article.featured img {
+  width: 100%;
+  border: 4px solid #fff;
+  border-radius: 8px;
+}
+article p, .article h3 {
+  margin: 20px 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 840px) {
+  article { /* rewrite article that isn't featured */
+    grid-column: span 3;
+    display: grid; /* grid inside grid, nested grid */
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  article, article.featured { /* rewrite both article and article.featured */
+    display: block; /* display as block, back to default */
+    margin: 5px auto;
+  }
+  article img, article.featured img {
+    width: 80%;
+    display: block;
+    margin: 0 auto; /* center image */
+  }
+}
