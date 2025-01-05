@@ -4,3 +4,53 @@ body {
   margin: 30px;
   font-family: "Poppins";
 }
+
+.grid-container {
+  background-color: #eee;
+  max-width: 900px;
+  margin: 0 auto; /* center the grid */
+  display: grid;; /* display as a grid */
+  grid-template-columns: repeat(6, 1fr); /* 6 columns */
+  grid-template-rows: 100px 300px 200px; /* row heights */
+  gap: 10px;
+  row-gap: 20px;
+  justify-items: stretch; /* justify means horizontal */
+  align-items: stretch; /* align means vertical */
+}
+
+.grid-container > div {
+  background: #ccc;
+  text-align: center;
+  padding: 20px; /* row height for all row, 
+  can be overwritten inside items or grid template row*/
+  border: 1px solid #777;
+}
+
+/* first div, first child*/
+.grid-container > div:nth-child(1) {
+  grid-column: 1 / span 2; /* from col 1 to col 2 */
+}
+
+/* second div, second child, and so on...*/
+.grid-container > div:nth-child(2) {
+  grid-column: 3 / span 3; /* span 3 columns */
+}
+
+.grid-container > div:nth-child(3) {
+  grid-column: span 1;
+}
+
+.grid-container > div:nth-child(4) {
+  grid-column: 2 / 6; /* col 2 - col 6 */
+  align-self: end; /* align to bottom only for this item */
+}
+
+.grid-container > div:nth-child(5) {
+  grid-column: span 3; /* if not enough space, new row */
+}
+
+.grid-container > div:nth-child(6) {
+  grid-column: span 3;
+  justify-self: end;
+  align-self: start;
+}
