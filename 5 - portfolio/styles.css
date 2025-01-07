@@ -4,3 +4,65 @@ body {
   margin: 0;
   font-family: "Poppins";
 }
+
+main {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  min-height: 100%; /*will take 100 percent of browser screen*/
+}
+
+/* nested grids inside our classes */
+.panel {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.panel .text { /* text styling target text class */
+  background: #eeeee7;
+  color: #323230;
+  padding: 30px 60px;
+}
+
+/* welcome panel */
+.panel.welcome {
+  background: #323230;
+  padding: 30px 60px;
+  grid-auto-rows: 1fr;
+}
+.panel.welcome nav a { /* target acheor texts*/
+  color: #a8a8a8;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.panel.welcome p { /* target paragraph inside panel/welcome class */
+  color: #a8a8a8;
+  max-width: 540px; /* so it won't reach end of pannel */
+  line-height: 2em;
+}
+.panel.welcome h1 { /* target header inside panel/welcome class */
+  color: #eeeee7;
+  font-size: 3em;
+}
+.panel.welcome footer { /* target footer inside panel/welcome class */
+  align-self: end; /* bottom of screen */
+}
+
+/* about panel */
+.panel.about {
+  grid-template-rows: 3fr 1fr; /* img will 3x size of the text row */
+  overflow: hidden;
+}
+.panel.about img { /* ensure good fit */
+  min-height: 100%;
+  min-width: 100%;
+}
+
+/* photos panel */
+.panel.photos {
+  grid-template-rows: 1fr 3fr; /* text will 3x size of the img row */
+  overflow: hidden;
+}
+.panel.photos img {  /* ensure good fit */
+  min-height: 100%;
+  min-width: 100%;
+}
