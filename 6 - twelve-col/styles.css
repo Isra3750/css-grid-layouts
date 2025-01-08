@@ -11,3 +11,75 @@ body {
   grid-template-columns: repeat(12, 1fr); /* 12 columns */
   gap: 30px;
 }
+
+/* header is a grid container, grid 1 */
+header {
+  padding: 20px 40px;
+  background: #fff;
+  align-items: center; /* align means vertical */
+}
+
+header h1 { /* header h1 is a grid item */
+  grid-column: span 6; /* 6 columns */
+}
+
+header nav {
+  grid-column: span 6;
+  justify-self: end; /* justify means horizontal, self means only this item while content means the container */
+
+}
+
+header nav a {
+  color: #333;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+main {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+main img {
+  grid-column: span 6;
+  width: 100%; /* 6 columns and no more with width 100%, inside span 6*/
+  border-radius: 6px;
+}
+
+main .welcome {
+  grid-column: 8 / span 5;
+}
+
+main > h2 { /* main > h2 means only h2 inside main */
+  grid-column: span 12; /* 12 columns */
+  text-align: center;
+  font-size: 1.5em;
+  padding-top: 20px;
+}
+
+/* styling cards at the bottom */
+.card {
+  grid-column: span 4; /* 4 columns for each of the three cards */
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px 20px; /* 10px top and bottom, 20px left and right */
+  margin-bottom: 30px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* media queries */
+@media screen and (max-width: 960px) {
+  main img {
+    grid-column: 2 /span 10; /* 10 columns, 1 col on left and 1 col on right leftovers */
+  }
+
+  main .welcome {
+    grid-column: 3 / span 8; /* 8 columns, 2 on left, 2 on right leftovers */
+    text-align: center;
+  }
+
+  main .card {
+    grid-column: 3 / span 8;
+  }
+}
